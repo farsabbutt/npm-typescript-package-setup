@@ -117,5 +117,17 @@ EOT
 echo "Running tests" && \
 npm test && \
 
+echo "Creating README file for the package" && \
+cat <<EOT >> README.md
+# :gift: My New Typescript Package
+## New version
+To bump a new patch version of the package:
+> npm version patch
+
+## Publish package
+To publish the package:
+> npm publish
+EOT
+
 echo "Configuring npm scripts: 'prepare', 'prepublishOnly', 'preversion', 'version', 'postversion'" && \
 node -e "let pkg=require('./package.json'); pkg.scripts.prepare='npm run build'; pkg.scripts.prepublishOnly='npm test && npm run lint'; pkg.scripts.preversion='npm run lint'; pkg.scripts.version='npm run format && git add -A src'; pkg.scripts.postversion='git push && git push --tags'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
