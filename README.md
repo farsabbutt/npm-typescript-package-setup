@@ -1,5 +1,5 @@
 # :hammer: NPM Typescript package setup
-Executable shell script to make life easier by automating setting up a new typescript package
+Executable shell script to make life easier by automating setting up a new npm package
 
 ## Usage:
 To execute the script, run:
